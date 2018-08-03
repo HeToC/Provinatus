@@ -23,6 +23,12 @@ libs/ESO-LibAddonMenu/LibAddonMenu-2.0/LibAddonMenu-2.0/controls/slider.lua
 libs/ESO-LibAddonMenu/LibAddonMenu-2.0/LibAddonMenu-2.0/controls/texture.lua
 libs/ESO-LibAddonMenu/LibAddonMenu-2.0/LibAddonMenu-2.0/controls/divider.lua
 
+libs/LibGroupSocket/LibMapPing/LibMapPing.lua
+libs/LibGroupSocket/LibGPS/LibGPS.lua
+libs/LibGroupSocket/LibGroupSocket/LibGroupSocket.lua
+
+
+
 lang/en.lua
 lang/$(language).lua
 
