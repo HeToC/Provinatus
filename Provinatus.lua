@@ -12,6 +12,7 @@ function Provinatus.EVENT_ADD_ON_LOADED(eventCode, addonName)
   if addonName == CrownPointerThing.name then
     CrownPointerThing:Initialize()
     ProvinatusMenu:Initialize()
+    ProvinatusSocket:Initialize()
     table.insert(
       Provinatus.UpdateFunctions,
       function()

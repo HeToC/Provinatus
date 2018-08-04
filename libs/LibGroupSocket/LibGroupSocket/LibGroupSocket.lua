@@ -267,6 +267,7 @@ function IncomingPacket:IsComplete()
 end
 
 local function IsValidMessageType(messageType)
+	d(messageType)
 	return not (messageType < 0 or messageType > 31)
 end
 

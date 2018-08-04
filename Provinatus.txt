@@ -38,6 +38,7 @@ reticles/arrow.lua
 Hud.lua
 Compass.lua
 Menu.lua
+sockets/Socket.lua
 CrownPointerThing.lua
 Provinatus.lua
 CrownPointerThing.xml
