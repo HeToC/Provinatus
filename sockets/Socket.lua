@@ -1,26 +1,18 @@
 ProvinatusSocket = {}
 
+local function Callback(UnitTag, Data)
+  d("Yay")
+  d(UnitTag)
+  d(Data)
+end
+
 function ProvinatusSocket:Initialize()
   self.LGS = LibStub("LibGroupSocket")
-  self:RegisterHandler()
-  self:RegisterCallback()
-end
-
-function ProvinatusSocket:RegisterHandler()
-  self.LGS:RegisterHandler(3, 1)
-end
-
-function ProvinatusSocket:RegisterCallback()
-  self.LGS:RegisterCallback(3, self:Callback())
-end
-
-function ProvinatusSocket:Callback(UnitTag, Data)
-  return function()
-    d(UnitTag)
-    d(Data)
-  end
+  self.MessageType = self.LGS.MESSAGE_TYPE_RESOURCES
+  self.LGS:RegisterHandler(self.MessageType, 1)
+  self.LGS:RegisterCallback(self.MessageType, Callback)
 end
 
 SLASH_COMMANDS["/foo"] = function()
-  d(ProvinatusSocket.LGS:Send("Absolute Unit", {[1] = 1}))
+  d(ProvinatusSocket.LGS:Send(ProvinatusSocket.MessageType, {[1] = 1}))
 end

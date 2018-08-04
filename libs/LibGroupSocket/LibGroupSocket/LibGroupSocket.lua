@@ -56,7 +56,7 @@ end
 
 local defaultData = {
 	version = 1,
-	enabled = false,
+	enabled = true,
 	autoDisableOnGroupLeft = true,
 	autoDisableOnSessionStart = true,
 	handlers = {},
@@ -267,7 +267,6 @@ function IncomingPacket:IsComplete()
 end
 
 local function IsValidMessageType(messageType)
-	d(messageType)
 	return not (messageType < 0 or messageType > 31)
 end
 
@@ -487,6 +486,16 @@ end
 
 local function HandleDataPing(pingType, pingTag, x, y, isPingOwner)
 	x, y = GetMapPingOnCommonMap(pingType, pingTag)
+	d("pingType")
+	d(pingType)
+	d("pingTag")
+	d(pingTag)
+	d("x")
+	d(x)
+	d("y")
+	d(y)
+	d("isPingOwner")
+	d(isPingOwner)
 	if(not LMP:IsPositionOnMap(x, y)) then return false end
 	if(not lib.incoming[pingTag]) then
 		lib.incoming[pingTag] = IncomingPacket:New(pingTag)
