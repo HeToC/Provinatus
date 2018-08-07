@@ -2,7 +2,7 @@
 ## Description: Adds a pointer to crown to Provisions Team Formation.
 ## Author: |cFF69B4AlbinoPython|r
 ## SavedVariables: CrownPointerThingSavedVariables
-## OptionalDependsOn: LibStub LibAddonMenu-2.0 pChat ProvisionsTeamFormation
+## OptionalDependsOn: LibStub LibAddonMenu-2.0 pChat ProvisionsTeamFormation LibMapPing LibGPS LibGroupSocket
 ## APIVersion: 100024
 ## Version: {{**DEVELOPMENTVERSION**}}
 
@@ -26,19 +26,20 @@ libs/ESO-LibAddonMenu/LibAddonMenu-2.0/LibAddonMenu-2.0/controls/divider.lua
 libs/LibGroupSocket/LibMapPing/LibMapPing.lua
 libs/LibGroupSocket/LibGPS/LibGPS.lua
 libs/LibGroupSocket/LibGroupSocket/LibGroupSocket.lua
-
-
+libs/LibGroupSocket/standalone.lua
 
 lang/en.lua
 lang/$(language).lua
 
 Config.lua
 
+ultimate/UltimateLookup.lua
+ultimate/UltimateHandler.lua
+sockets/Socket.lua
 reticles/arrow.lua
 Hud.lua
 Compass.lua
 Menu.lua
-sockets/Socket.lua
 CrownPointerThing.lua
 Provinatus.lua
 CrownPointerThing.xml

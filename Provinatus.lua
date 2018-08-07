@@ -49,6 +49,8 @@ function Provinatus.EVENT_ADD_ON_LOADED(eventCode, addonName)
     HUD_SCENE:AddFragment(fragment)
     HUD_UI_SCENE:AddFragment(fragment)
     SIEGE_BAR_SCENE:AddFragment(fragment)
+
+    EVENT_MANAGER:RegisterForUpdate(CrownPointerThing.name, 1000, ProvinatusUltimateHandler.SendData)
     EVENT_MANAGER:RegisterForUpdate(CrownPointerThing.name .. "Update", 1000 / CrownPointerThing.SavedVars.HUD.RefreshRate, Provinatus.OnUpdate)
   end
 end
