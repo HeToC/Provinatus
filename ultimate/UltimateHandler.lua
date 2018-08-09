@@ -1,9 +1,8 @@
 ProvinatusUltimateHandler = {}
 
 function ProvinatusUltimateHandler.HandleData(UnitTag, Data)
-  d(UnitTag)
-  d(PROVINATUS_ULTIMATES_BY_NAME[Data[1]])
-  d(Data[2])
+  -- TODO Sanitize input
+  UltimateHUD:UpdateUnit(UnitTag, PROVINATUS_ULTIMATES_BY_NAME[Data[1]], Data[2])
 end
 
 function ProvinatusUltimateHandler.SendData()

@@ -2,6 +2,10 @@ local Provinatus = {}
 
 Provinatus.UpdateFunctions = {}
 
+local function AddUpdateFunction(Function)
+  table.insert(Provinatus.UpdateFunctions, Function)
+end
+
 function Provinatus.OnUpdate()
   for key, UpdateFunction in pairs(Provinatus.UpdateFunctions) do
     UpdateFunction()
@@ -13,18 +17,14 @@ function Provinatus.EVENT_ADD_ON_LOADED(eventCode, addonName)
     CrownPointerThing:Initialize()
     ProvinatusMenu:Initialize()
     ProvinatusSocket:Initialize()
-    table.insert(
-      Provinatus.UpdateFunctions,
-      function()
-        CrownPointerThing.OnUpdate()
-      end
-    )
+    UltimateHUD:Initialize()
+    AddUpdateFunction(CrownPointerThing.OnUpdate)
+    AddUpdateFunction(UltimateHUD.OnUpdate)
     -- Check if Provision's Team Formation enabled.
     -- If it is, disable HUD and inform player.
     if (ProvTF == nil) then
       ProvinatusHud:Initialize()
-      table.insert(
-        Provinatus.UpdateFunctions,
+      AddUpdateFunction(
         function()
           ProvinatusHud:OnUpdate()
         end
@@ -32,8 +32,7 @@ function Provinatus.EVENT_ADD_ON_LOADED(eventCode, addonName)
 
       if (YACS == nil) then
         ProvinatusCompass:Initialize()
-        table.insert(
-          Provinatus.UpdateFunctions,
+        AddUpdateFunction(
           function()
             ProvinatusCompass:OnUpdate()
           end
@@ -51,6 +50,7 @@ function Provinatus.EVENT_ADD_ON_LOADED(eventCode, addonName)
     SIEGE_BAR_SCENE:AddFragment(fragment)
 
     EVENT_MANAGER:RegisterForUpdate(CrownPointerThing.name, 1000, ProvinatusUltimateHandler.SendData)
+    EVENT_MANAGER:RegisterForUpdate(CrownPointerThing.name, 10000, UltimateHUD.Clean)
     EVENT_MANAGER:RegisterForUpdate(CrownPointerThing.name .. "Update", 1000 / CrownPointerThing.SavedVars.HUD.RefreshRate, Provinatus.OnUpdate)
   end
 end

@@ -35,6 +35,7 @@ Config.lua
 
 ultimate/UltimateLookup.lua
 ultimate/UltimateHandler.lua
+ultimate/UltimateHUD.lua
 sockets/Socket.lua
 reticles/arrow.lua
 Hud.lua
